@@ -3,21 +3,18 @@ package com.dreamer.wallpaper_app_11
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.dreamer.wallpaper_app_11.app.Wallpaper_app
-import com.dreamer.wallpaper_app_11.ui.theme.Wallpaper_App_11Theme
+import com.dreamer.wallpaper_app_11.app.Navigation.Nav
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Wallpaper_app()
+
+            Nav()
+
+
         }
     }
 }

@@ -1,8 +1,10 @@
-package com.dreamer.wallpaper_app_11.componnets
+package com.dreamer.wallpaper_app_11.componnets.Homepage
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Face
@@ -16,13 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.dreamer.wallpaper_app_11.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,12 +34,15 @@ fun SearchBarwidget(){
 
     val searchHistory = listOf("Naruto", "One piece","Batman","spiderman","Goku","Luffy")
 
+Row(
+    modifier = Modifier.fillMaxWidth().padding(10.dp),
+    horizontalArrangement = Arrangement.Center,) {
 
     DockedSearchBar(
         query = query,
         onQueryChange = {query = it},
         onSearch = { newQuery->
-                   println("Searched successfull: $newQuery")
+            println("Searched successfull: $newQuery")
         },
         active = active,
         onActiveChange = {active = it},
@@ -67,18 +70,21 @@ fun SearchBarwidget(){
         }
 
 
-        ) {
+    ) {
         searchHistory.takeLast(4).forEach{item ->
-           ListItem(
-               modifier = Modifier.clickable{ query = item},
-               headlineContent = { Text(text = item)},
-               leadingContent = {
-                   Icon(imageVector = Icons.Filled.Face, contentDescription = "history")
-               }
-           )
+            ListItem(
+                modifier = Modifier.clickable{ query = item},
+                headlineContent = { Text(text = item)},
+                leadingContent = {
+                    Icon(imageVector = Icons.Filled.Face, contentDescription = "history")
+                }
+            )
 
         }
 
 
     }
+
+}
+
 }

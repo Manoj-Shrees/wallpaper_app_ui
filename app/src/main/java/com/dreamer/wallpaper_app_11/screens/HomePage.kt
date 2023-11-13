@@ -26,19 +26,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.dreamer.wallpaper_app_11.R
-import com.dreamer.wallpaper_app_11.componnets.NormalTextComponent
-import com.dreamer.wallpaper_app_11.componnets.SearchBarwidget
+import com.dreamer.wallpaper_app_11.componnets.Homepage.CategorySelectionList
+import com.dreamer.wallpaper_app_11.componnets.Homepage.NormalTextComponent
+import com.dreamer.wallpaper_app_11.componnets.Homepage.SearchBarwidget
+import com.dreamer.wallpaper_app_11.componnets.Homepage.WallpaperList
 
 
 @Composable
-fun HomePage(){
+fun HomePage(navController: NavController){
 
     Surface(
         color = colorResource(id = R.color.bgcolor),
         modifier = Modifier
             .fillMaxSize()
-            .padding(28.dp)
     )
 
     {
@@ -46,14 +48,14 @@ fun HomePage(){
         Column(modifier = Modifier.fillMaxSize()) {
 
             Box(
-                modifier = Modifier.height(100.dp)
+                modifier = Modifier.height(100.dp).padding(10.dp)
             ) {
 
                 Spacer(modifier = Modifier.height(100.dp))
 
 
 
-                Row {
+                Row(modifier = Modifier.height(100.dp).padding(0.dp,20.dp,0.dp,10.dp)) {
 
                     Image(
                         painter = painterResource(id = R.drawable.profilepic),
@@ -74,7 +76,7 @@ fun HomePage(){
                                 fontWeight = FontWeight.Normal,
                             )
                         )
-                        NormalTextComponent(value = "Vikas")
+                        NormalTextComponent(value = "Roronova Zoro")
 
                     }
 
@@ -84,8 +86,9 @@ fun HomePage(){
                 }
 
                 IconButton(modifier = Modifier.then(
-                    Modifier.size(50.dp)
-                        .padding(start = 2.dp, top = 8.dp)
+                    Modifier
+                        .size(60.dp)
+                        .padding(start = 2.dp, top = 20.dp)
                         .align(Alignment.TopEnd)
                 ),
                     onClick = { }) {
@@ -102,17 +105,17 @@ fun HomePage(){
 
             SearchBarwidget()
 
+
+            CategorySelectionList(modifier = Modifier.height(120.dp))
+
+            WallpaperList(navController)
+
+
+            
+
         }
 
 
     }
 }
 
-
-
-@Preview
-@Composable
-fun DefaultPreviewHomePage()
-{
-    HomePage()
-}

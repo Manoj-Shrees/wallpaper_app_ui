@@ -1,4 +1,4 @@
-package com.dreamer.wallpaper_app_11.componnets
+package com.dreamer.wallpaper_app_11.componnets.Homepage
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
