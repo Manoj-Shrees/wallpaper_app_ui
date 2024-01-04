@@ -1,3 +1,6 @@
+This is just a Design Preview of the Wallpaper APP.
+
+
 Design preview :
 
 
